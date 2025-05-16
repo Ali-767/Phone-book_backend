@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-
-const url = process.env.MONGODB_URI
+const rawUri = process.env.MONGODB_URI;
+const url = rawUri && rawUri.replace(/^"|"$/g, ''); 
 const phoneRegex = /^\d{2,3}-\d+$/;
 
 
